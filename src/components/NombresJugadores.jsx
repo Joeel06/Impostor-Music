@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function NombresJugadores({ numJugadores, numImpostores, onContinuar, onAtras }) {
-  const [nombres, setNombres] = useState(Array(numJugadores).fill(""));
+  const [nombres, setNombres] = useState(
+  Array.from({ length: numJugadores }, (_, i) => `Jugador ${i + 1}`)
+);
   const [error, setError] = useState("");
 
   const handleChange = (index, value) => {
@@ -39,14 +41,14 @@ function NombresJugadores({ numJugadores, numImpostores, onContinuar, onAtras })
         <h2 className="text-2xl font-bold mb-4 text-white">Nombres de los jugadores</h2>
         <div className="bg-white/80 rounded-2xl shadow-xl max-w-sm w-full p-6 flex flex-col gap-4 text-black">
       {nombres.map((nombre, i) => (
-        <input
-          key={i}
-          value={nombre}
-          placeholder={`Jugador ${i + 1}`}
-          onChange={(e) => handleChange(i, e.target.value)}
-          className="bg-gray-200 rounded-lg p-2 w-full"
-        />
-      ))}
+  <input
+    key={i}
+    placeholder={`Jugador ${i + 1}`}
+    value={nombre}
+    onChange={(e) => handleChange(i, e.target.value)}
+    className="bg-gray-200 rounded-lg p-2 w-full"
+  />
+))}
       <button
         onClick={handleSubmit}
         className="mt-4 bg-purple-900 text-white py-2 px-4 rounded hover:bg-purple-700"

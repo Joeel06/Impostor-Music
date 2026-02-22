@@ -23,18 +23,39 @@ export const palabrasPorTematica = {
     "MMA",
     "Brazilian Jiu-Jitsu",
   ],
-  peliculas: [
-    "Titanic",
-    "Avatar",
-    "Gladiator",
-    "Matrix"
+  tendencia: [
+    "Therians",
+    "6-7",    
+    "Princess treatment",                  
   ],
   genero: [
-    "Rock",
-    "Pop",
     "Reggaeton",
-    "Jazz",
     "TRAP",
+    "RAP",
+  ],
+  artistasFlow: [
+    "Bad Bunny",
+    "Anuel AA",
+    "Jhay Cortez",
+    "Karol G",
+    "Rauw Alejandro",
+    "Ozuna",
+    "Omar Courtz",
+    "Sech",
+    "Duki",
+    "KHEA",
+  ],
+  futbolFamosos: [
+    "Lionel Messi",
+    "Cristiano Ronaldo",
+    "Kylian Mbappé",
+    "Neymar",
+    "Luka Modrić",
+    "Mohamed Salah",
+    "Kevin De Bruyne",
+    "Erling Haaland",
+    "Sergio Ramos",
+    "Robert Lewandowski",
   ],
   aleatorio: [
     "Pizza",
@@ -60,5 +81,9 @@ export const palabrasPorTematica = {
     "FIFA",
     "Call of Duty",
     "Among Us",
-  ]
+    "Bad Bunny",
+    "Anuel AA",
+    "Lionel Messi",
+    "Cristiano Ronaldo",
+  ],
 };
