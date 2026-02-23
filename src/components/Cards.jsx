@@ -135,7 +135,7 @@ function Cards({ nombres, numImpostores, palabras, onAtras }) {
 
         <button
           onClick={onAtras}
-          className="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition font-semibold"
+          className="mt-6 bg-purple-900 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition font-semibold"
         >
           Volver a jugar
         </button>
