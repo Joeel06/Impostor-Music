@@ -16,7 +16,7 @@ function Inicio({ onContinuar, numJugadoresInicial = "", numImpostoresInicial = 
       jugadores > 2 &&
       jugadores < 10 &&
       impostores > 0 &&
-      impostores < 6 &&
+      impostores < 9 &&
       impostores <= jugadores
     ) {
       setError("");

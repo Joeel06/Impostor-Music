@@ -43,6 +43,7 @@ function NombresJugadores({ numJugadores, numImpostores, nombresIniciales, onCon
     key={i}
     placeholder={`Jugador ${i + 1}`}
     value={nombre}
+    maxLength={"10"}
     onChange={(e) => handleChange(i, e.target.value)}
     className="bg-gray-200 rounded-lg p-2 w-full"
   />
