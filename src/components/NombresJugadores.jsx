@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-function NombresJugadores({ numJugadores, numImpostores, onContinuar, onAtras }) {
+function NombresJugadores({ numJugadores, numImpostores, nombresIniciales, onContinuar, onAtras }) {
   const [nombres, setNombres] = useState(
-  Array.from({ length: numJugadores }, (_, i) => `Jugador ${i + 1}`)
-);
+    nombresIniciales && nombresIniciales.length === numJugadores
+      ? nombresIniciales
+      : Array.from({ length: numJugadores }, (_, i) => `Jugador ${i + 1}`)
+  );
   const [error, setError] = useState("");
 
   const handleChange = (index, value) => {
@@ -21,13 +23,9 @@ function NombresJugadores({ numJugadores, numImpostores, onContinuar, onAtras })
          setError("");
          onContinuar(nombres);
     }
-    console.log("Nombres de jugadores:", nombres);
-    console.log("Número de impostores:", numImpostores);
-    // Aquí puedes pasar a la siguiente pantalla del juego
   };
 
   return (
-
     <div className="min-h-screen flex flex-col relative" style={{ background: "linear-gradient(160deg, #0a0a12 0%, #0f0f1e 45%, #12090d 100%)" }}>
       <div className="flex-1 flex flex-col justify-center items-center gap-6 px-4">
 
@@ -67,7 +65,6 @@ function NombresJugadores({ numJugadores, numImpostores, onContinuar, onAtras })
         </p>
       </footer>
     </div>
-
   );
 }
 

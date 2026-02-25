@@ -37,7 +37,7 @@ function Tematica({ onSeleccion, onAtras }) {
         <h1 className="text-7xl">🌍</h1>
         <h2 className="text-3xl font-bold mb-4 text-white">Elige Temática:</h2>
 
-        <div className="bg-white/80 rounded-2xl shadow-xl max-w-md w-full p-6 flex flex-wrap justify-center gap-4">
+        <div className="bg-white/80 rounded-2xl shadow-xl max-w-md w-full p-6 grid grid-cols-2 gap-4 ">
           {tematicas.map((tema) => (
             <button
               key={tema.id}
@@ -56,7 +56,7 @@ function Tematica({ onSeleccion, onAtras }) {
             type="submit"
             value="Continuar"
             onClick={handleContinuar}
-            className="bg-purple-900 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-700 transition w-full mt-2"
+             className="col-span-2 bg-purple-900 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-700 transition w-full mt-2"
           />
         </div>
       </div>

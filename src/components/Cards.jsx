@@ -1,14 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function Cards({ nombres, numImpostores, palabras, onAtras }) {
-  const [jugadores, setJugadores] = useState([]);
-  const [revelado, setRevelado] = useState([]);
+const CARDS_STORAGE_KEY = "impostor_cards_state";
 
+function Cards({ nombres, numImpostores, palabras, onAtras }) {
   const emojis = ["😎", "🧐", "🤓", "😇", "🤠", "🧙‍♂️", "👻", "🦸‍♂️"];
 
-  useEffect(() => {
-    if (!nombres || nombres.length === 0 || !palabras) return;
+  const buildJugadores = () => {
+    try {
+      const raw = sessionStorage.getItem(CARDS_STORAGE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw);
+        if (
+          saved.nombres &&
+          saved.nombres.join(",") === nombres.join(",") &&
+          saved.numImpostores === numImpostores
+        ) {
+          return saved.jugadores;
+        }
+      }
+    } catch {}
+    return null;
+  };
+
+  const generarJugadores = () => {
+    if (!nombres || nombres.length === 0 || !palabras) return [];
 
     const roles = Array(nombres.length).fill("No eres el impostor");
     const indices = [];
@@ -16,25 +32,43 @@ function Cards({ nombres, numImpostores, palabras, onAtras }) {
       const rand = Math.floor(Math.random() * nombres.length);
       if (!indices.includes(rand)) indices.push(rand);
     }
-    indices.forEach(i => (roles[i] = "Eres el impostor"));
+    indices.forEach((i) => (roles[i] = "Eres el impostor"));
 
     const palabraDelTema = palabras[Math.floor(Math.random() * palabras.length)];
 
-    const jugadoresAsignados = nombres.map((nombre, i) => ({
+    return nombres.map((nombre, i) => ({
       nombre,
       rol: roles[i],
       palabra: roles[i] === "No eres el impostor" ? palabraDelTema : "???",
       emoji: emojis[i % emojis.length],
     }));
+  };
 
-    setJugadores(jugadoresAsignados);
-    setRevelado(Array(nombres.length).fill(false));
-  }, [nombres, numImpostores, palabras]);
+  const [jugadores] = useState(() => {
+    const cached = buildJugadores();
+    if (cached) return cached;
+    const nuevos = generarJugadores();
+    try {
+      sessionStorage.setItem(
+        CARDS_STORAGE_KEY,
+        JSON.stringify({ nombres, numImpostores, jugadores: nuevos })
+      );
+    } catch {}
+    return nuevos;
+  });
+
+  const [revelado, setRevelado] = useState(Array(jugadores.length).fill(false));
 
   const handleRevelar = (index) => {
     const nuevo = [...revelado];
     nuevo[index] = !nuevo[index];
     setRevelado(nuevo);
+  };
+
+  const handleVolverAJugar = () => {
+    // Limpiamos el cache para que la próxima partida genere nuevos roles y palabra
+    sessionStorage.removeItem(CARDS_STORAGE_KEY);
+    onAtras();
   };
 
   return (
@@ -64,7 +98,7 @@ function Cards({ nombres, numImpostores, palabras, onAtras }) {
                 <motion.div
                   animate={{
                     rotateY: revelado[index] ? 180 : 0,
-                    borderColor: revelado[index] ? "#A855F7" : "#8B5CF6", // morado cuando revela
+                    borderColor: revelado[index] ? "#A855F7" : "#8B5CF6",
                   }}
                   transition={{ duration: 0.6 }}
                   className="relative w-full h-full rounded-xl border shadow-lg"
@@ -134,7 +168,7 @@ function Cards({ nombres, numImpostores, palabras, onAtras }) {
         </div>
 
         <button
-          onClick={onAtras}
+          onClick={handleVolverAJugar}
           className="mt-6 bg-purple-900 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition font-semibold"
         >
           Volver a jugar
