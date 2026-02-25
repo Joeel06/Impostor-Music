@@ -1,14 +1,13 @@
 import { useState } from "react";
 import './Inicio.css';
 
-function Inicio({ onContinuar, numJugadoresInicial = "", numImpostoresInicial = "" }) {
+function Inicio({ onContinuar, onComoSeJuega, numJugadoresInicial = "", numImpostoresInicial = "" }) {
   const [numJugadores, setNumJugadores] = useState(numJugadoresInicial !== 0 ? String(numJugadoresInicial) : "");
   const [numImpostores, setNumImpostores] = useState(numImpostoresInicial !== 0 ? String(numImpostoresInicial) : "");
   const [error, setError] = useState("");
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const jugadores = parseInt(numJugadores, 10);
     const impostores = parseInt(numImpostores, 10);
 
@@ -16,7 +15,7 @@ function Inicio({ onContinuar, numJugadoresInicial = "", numImpostoresInicial = 
       jugadores > 2 &&
       jugadores < 10 &&
       impostores > 0 &&
-      impostores < 9 &&
+      impostores < 6 &&
       impostores <= jugadores
     ) {
       setError("");
@@ -39,11 +38,17 @@ function Inicio({ onContinuar, numJugadoresInicial = "", numImpostoresInicial = 
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative" style={{ background: "linear-gradient(160deg, #0a0a12 0%, #0f0f1e 45%, #12090d 100%)" }}>
+    <div
+      className="min-h-screen flex flex-col relative"
+      style={{ background: "linear-gradient(160deg, #0a0a12 0%, #0f0f1e 45%, #12090d 100%)" }}
+    >
       <div className="flex-1 flex flex-col justify-center items-center gap-6 px-4">
         <h1 className="text-7xl">🕵</h1>
         <h1 className="text-3xl font-bold text-white text-center">Juego del Impostor</h1>
-        <h2 className="text-2xl font-bold text-white text-center">Versión <span className="text-purple-500">música 🎵</span></h2>
+        <h2 className="text-2xl font-bold text-white text-center">
+          Versión <span className="text-purple-500">música 🎵</span>
+        </h2>
+
         <form onSubmit={handleSubmit} className="bg-white/80 rounded-2xl shadow-xl max-w-sm w-full p-6 flex flex-col gap-4">
           <h2 className="text-gray-800 font-semibold">Número de jugadores:</h2>
           <input
@@ -71,6 +76,13 @@ function Inicio({ onContinuar, numJugadoresInicial = "", numImpostoresInicial = 
         </form>
 
         {error && <p className="text-red-600 mt-2 text-center">{error}</p>}
+
+        <button
+          onClick={onComoSeJuega}
+          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition  font-semibold"
+        >
+        ¿Cómo se juega?
+        </button>
       </div>
 
       <footer className="w-full py-4 flex justify-center items-center">

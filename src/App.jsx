@@ -4,6 +4,7 @@ import Inicio from './components/Inicio';
 import NombresJugadores from './components/NombresJugadores';
 import Tematica from './components/Tematica';
 import Cards from './components/Cards';
+import ComoSeJuega from './components/ComoSeJuega';
 import { palabrasPorTematica } from "./data/palabras";
 
 const STORAGE_KEY = "impostor_game_state";
@@ -32,9 +33,8 @@ function App() {
   const handleAtras = () => {
     if (pantalla === "nombres") setPantalla("inicio");
     else if (pantalla === "tematica") setPantalla("nombres");
-    else if (pantalla === "juego") {
-      setPantalla("inicio");
-    }
+    else if (pantalla === "juego") setPantalla("inicio");
+    else if (pantalla === "comoSeJuega") setPantalla("inicio");
   };
 
   const handleInicio = (jugadores, impostores) => {
@@ -59,9 +59,14 @@ function App() {
       {pantalla === "inicio" && (
         <Inicio
           onContinuar={handleInicio}
+          onComoSeJuega={() => setPantalla("comoSeJuega")}
           numJugadoresInicial={numJugadores || ""}
           numImpostoresInicial={numImpostores || ""}
         />
+      )}
+
+      {pantalla === "comoSeJuega" && (
+        <ComoSeJuega onAtras={handleAtras} />
       )}
 
       {pantalla === "nombres" && (
