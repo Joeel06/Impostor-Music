@@ -1,7 +1,8 @@
 🎵 Impostor Music
 Un juego donde la música y el engaño se mezclan. ¿Podrás descubrir al impostor antes de que sea demasiado tarde?
-<img width="1920" height="1080" alt="juego-impostor" src="https://github.com/user-attachments/assets/b7543d05-1bb0-4826-9e49-96d3fe0eab31" />
 🌍 Juega ahora: https://impostormusic.vercel.app/
+
+<img width="1920" height="1080" alt="juego-impostor" src="https://github.com/user-attachments/assets/b7543d05-1bb0-4826-9e49-96d3fe0eab31" />
 
 🕵️ ¿Qué es Impostor Music?
 Impostor Music es un juego multijugador en el que uno o varios jugadores son impostores y no conocen la palabra secreta.
