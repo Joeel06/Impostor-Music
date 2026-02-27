@@ -1,6 +1,7 @@
 🎵 Impostor Music
 
-Un juego donde la música y el engaño se mezclan. ¿Podrás descubrir al impostor antes de que sea demasiado tarde?
+Un juego donde la música y el engaño se mezclan. ¿Podrás descubrir al impostor antes de que sea demasiado tarde?<br>
+
 🌍 Juega ahora: https://impostormusic.vercel.app/
 
 <img width="1920" height="1080" alt="juego-impostor" src="https://github.com/user-attachments/assets/b7543d05-1bb0-4826-9e49-96d3fe0eab31" />
