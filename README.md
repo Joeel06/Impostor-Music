@@ -37,7 +37,7 @@ Los demás jugadores deben descubrir quién es el impostor antes de que termine 
 <br>
 
 # Clonar repositorio
-git clone https://github.com/Joeel06/Impostor-Music
+git clone https://github.com/Joeel06/Impostor-Music<br>
 cd impostor-music
 
 # Instalar dependencias
