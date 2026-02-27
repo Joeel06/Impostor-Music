@@ -1,4 +1,5 @@
 🎵 Impostor Music
+
 Un juego donde la música y el engaño se mezclan. ¿Podrás descubrir al impostor antes de que sea demasiado tarde?
 🌍 Juega ahora: https://impostormusic.vercel.app/
 
@@ -8,10 +9,12 @@ Un juego donde la música y el engaño se mezclan. ¿Podrás descubrir al impost
 Impostor Music es un juego multijugador en el que uno o varios jugadores son impostores y no conocen la palabra secreta.<br>
 El resto de participantes sí reciben la palabra y deben elegir una canción relacionada con ella.
 <br>
+
 🎯 Objetivos del juego:<br>
 El impostor debe deducir la palabra secreta o pasar desapercibido.<br>
 Los demás jugadores deben descubrir quién es el impostor antes de que termine la ronda.
 <br>
+
 🚀 Estado del Proyecto:<br>
 ✅ Proyecto en producción<br>
 ✅ Totalmente funcional<br>
@@ -32,7 +35,6 @@ Los demás jugadores deben descubrir quién es el impostor antes de que termine 
 📜 Lenguaje: JavaScript<br>
 🚀 Hosting: Vercel<br>
 <br>
-Si quieres ejecutar el proyecto en local:
 
 # Clonar repositorio
 git clone https://github.com/tuusuario/impostor-music.git
