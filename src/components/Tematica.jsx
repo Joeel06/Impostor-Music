@@ -61,11 +61,21 @@ function Tematica({ onSeleccion, onAtras }) {
         </div>
       </div>
 
-      <footer className="w-full py-4 flex justify-center items-center">
-        <p className="text-gray-400 text-sm">
-          Desarrollado por <span className="text-purple-500 font-semibold">Joel</span>
-        </p>
-      </footer>
+
+<footer className="w-full py-4 flex flex-col md:flex-row justify-center items-center gap-2">
+  <a
+    href="https://github.com/Joeel06/Impostor-Music"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-purple-500 font-semibold hover:underline"
+  >
+    GitHub
+  </a>
+
+  <p className="text-gray-500 text-sm">
+    Desarrollado por <span className="text-purple-500 font-semibold">Joel</span>
+  </p>
+</footer>
     </div>
   );
 }

@@ -27,12 +27,15 @@ export const palabrasPorTematica = {
   tendencia: [
     "Therians",
     "6-7",    
-    "Princess treatment",                  
+    "Princess treatment",     
+    "Rizz",              
   ],
   genero: [
     "Reggaeton",
-    "TRAP",
-    "RAP",
+    "Trap",
+    "Rap",
+     "Salsa",
+    "Bachata"
   ],
   artistasFlow: [
     "Bad Bunny",
@@ -43,8 +46,7 @@ export const palabrasPorTematica = {
     "Ozuna",
     "Omar Courtz",
     "Sech",
-    "Duki",
-    "KHEA",
+    "Duki"
   ],
   futbolFamosos: [
     "Lionel Messi",
