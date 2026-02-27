@@ -46,5 +46,4 @@ npm install
 # Ejecutar en desarrollo
 npm run dev
 
-👨‍💻 Autor
 Desarrollado por Joel
